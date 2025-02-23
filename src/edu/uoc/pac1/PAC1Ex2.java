@@ -48,14 +48,14 @@ public class PAC1Ex2 {
         for (int i=0; i< compoundsNames.length; i++){
             double molarMass = calculateMolarMass(alkaliMetalIndexes[i], alkalineMetalQuantities[i], halogenIndexes[i], halogenQuantities[i]);
             boolean isSuitable = isSuitableForDrugs(molarMass);
-            String suitableText = isSuitable ? "is suitable for drugs." : "is not suitable for drugs.";
+            String suitableText = isSuitable ? " " : " not ";
             if (isSuitable) {
                 counter++;
             }
             compoundsForDrugs += "\t" +
                     compoundsNames[i] +
                     " ("+getStability(alkaliMetalIndexes[i], halogenIndexes[i])+") " +
-                    suitableText +
+                    "is" + suitableText + "suitable for drugs." +
                     System.lineSeparator();
 
         }
