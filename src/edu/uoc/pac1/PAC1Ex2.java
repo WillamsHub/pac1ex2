@@ -42,16 +42,26 @@ public class PAC1Ex2 {
     }
 
     public static void getCompoundsForDrugs(String[] compoundsNames, int[] alkaliMetalIndexes, int[] alkalineMetalQuantities, int[] halogenIndexes, int[] halogenQuantities) {
-        //TODO
-        System.out.println("Results of the compounds for drugs:");
+        int counter=0;
+        String compoundsForDrugs = "Results of the compounds for drugs:" + System.lineSeparator();
 
-        System.lineSeparator();
-        for (int i=0; i<= compoundsNames.length; i++){
-            double c = calculateMolarMass(alkaliMetalIndexes[i], alkalineMetalQuantities[i], halogenIndexes[i], halogenQuantities[i]);
-            isSuitableForDrugs(c);
-            System.out(compoundsNames + getStability(i));
+        for (int i=0; i< compoundsNames.length; i++){
+            double molarMass = calculateMolarMass(alkaliMetalIndexes[i], alkalineMetalQuantities[i], halogenIndexes[i], halogenQuantities[i]);
+            boolean isSuitable = isSuitableForDrugs(molarMass);
+            String suitableText = isSuitable ? "is suitable for drugs." : "is not suitable for drugs.";
+            if (isSuitable) {
+                counter++;
+            }
+            compoundsForDrugs += "\t" +
+                    compoundsNames[i] +
+                    " ("+getStability(alkaliMetalIndexes[i], halogenIndexes[i])+") " +
+                    suitableText +
+                    System.lineSeparator();
 
         }
+        compoundsForDrugs += "Final result: "+ counter +" compounds are suitable for drugs." + System.lineSeparator();
+
+        System.out.println (compoundsForDrugs);
     }
 
 }
