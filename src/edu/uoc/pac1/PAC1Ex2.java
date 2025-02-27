@@ -54,14 +54,14 @@ public class PAC1Ex2 {
             }
             compoundsForDrugs += "\t" +
                     compoundsNames[i] +
-                    " ("+getStability(alkaliMetalIndexes[i], halogenIndexes[i])+") " +
+                    " ("+getStability(alkalineMetalQuantities[i], halogenQuantities[i])+") " +
                     "is" + suitableText + "suitable for drugs." +
                     System.lineSeparator();
 
         }
         compoundsForDrugs += "Final result: "+ counter +" compounds are suitable for drugs." + System.lineSeparator();
 
-        System.out.println (compoundsForDrugs);
+        System.out.print(compoundsForDrugs);
     }
 
 }
